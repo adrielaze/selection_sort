@@ -1,24 +1,31 @@
-# Quick Sort (ordenação rápida)
+# Quick Sort (ordenação rápida) é um algoritmo de ordenação eficiente e amplamente utilizado que segue a abordagem de divisão e conquista. 
+# Ele funciona selecionando um "pivô" e particionando a lista em sublistas que são então ordenadas recursivamente.
+# Vantagens # 
+# Muito rápido na prática:Em geral, é mais rápido que Merge Sort e Heap Sort, devido ao bom aproveitamento de cache e baixo overhead.
+# Complexidade média eficiente: Para a maioria dos casos reais, é muito eficiente e confiável.
+# Desvantagens #
+# Pior caso é O(n²):Isso acontece quando o pivô escolhido é sempre o menor ou o maior elemento (ex: lista já ordenada), a menos que se use estratégias como pivô aleatório.
+# Não é estável: Pode mudar a ordem de elementos iguais, o que pode ser problemático em algumas aplicações.
 
-lista = [10, 3, 7, 8, 2, 1, 5]
+lista = [20, 8, 13, 5, 9, 10, 15]
 
 def partition(lista, inicio, fim):
-    pivo = lista[fim]
-    i = inicio - 1
+    pivo = lista[fim]                                       # Escolhe o último elemento como pivô
+    i = inicio - 1                                          # Índice do menor elemento
     for j in range(inicio, fim):
         if lista[j] <= pivo:
             i += 1
-            lista[i], lista[j] = lista[j], lista[i]
+            lista[i], lista[j] = lista[j], lista[i]         # Troca elementos
     
-    lista[i + 1], lista[fim] = lista[fim], lista[i + 1]
+    lista[i + 1], lista[fim] = lista[fim], lista[i + 1]     # Coloca o pivô na posição correta
     return i + 1  
-def quicksort(lista, inicio=0, fim=None):
+def quicksort(lista, inicio=0, fim=None):                   # Retorna o índice do pivô
     if fim is None:
         fim = len(lista) - 1
     if inicio < fim:
         p = partition(lista, inicio, fim)
-        quicksort(lista, inicio, p - 1)
-        quicksort(lista, p + 1, fim)
+        quicksort(lista, inicio, p - 1)                     # Ordena a parte esquerda
+        quicksort(lista, p + 1, fim)                        # Ordena a parte direita
 
     
 quicksort(lista)
