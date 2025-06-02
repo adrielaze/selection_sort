@@ -1,4 +1,5 @@
-# Counting Sort ordenção por contagem
+# Counting Sort é um algoritmo de ordenação que é particularmente eficiente para ordenar inteiros em um intervalo limitado. 
+# Ele não é um algoritmo de comparação e funciona contando a ocorrência de cada valor na lista
 # Vantagens # 
 # Muito rápido para inteiros em intervalos pequenos: Pode atingir complexidade, onde n é o número de elementos o maior valor presente.
 # Estável: Preserva a ordem de elementos iguais, útil em ordenações com múltiplos critérios.
