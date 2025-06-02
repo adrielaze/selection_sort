@@ -3,6 +3,9 @@
 # Vantagens # 
 # Muito eficiente para dados uniformemente distribuídos: Pode atingir complexidade de tempo linear O(n) em casos ideais.
 # Paralelizável: Cada balde pode ser ordenado de forma independente, o que facilita a paralelização do processo.
+# Desvantagens #
+# Alta dependência da distribuiçõa dos dados: Ocorre quand0o os dados estão iniformemente distribuído
+# Necessidade de conhecimento prévio da faixa de dados: para definir os baldes corretamente, é necessario conecher a faixa d valores.
 
 lista = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
 
