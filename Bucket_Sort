@@ -9,21 +9,21 @@ lista = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
 
 def bucket_sort(lista):
     if len(lista) == 0:
-        return lista
-    min_valor = min(lista)
+        return lista                                    # lista vazia
+    min_valor = min(lista)                              # Encontra o valor mínimo e máximo para delimitar os buckets
     max_valor = max(lista)
-    n = len(lista)
+    n = len(lista)                                      # Número de buckets
     bucket_range = (max_valor - min_valor) / n
-    buckets = [[] for _ in range(n)]
-    for num in lista:
+    buckets = [[] for _ in range(n)]                    # Cria os buckets como listas vazias
+    for num in lista:                                   # Distribui os elementos nos buckets
         index = int((num - min_valor) / bucket_range)
-        if index == n:
+        if index == n:                                  # Corrige index para o maior valor
             index = n - 1
         buckets[index].append(num)
-    lista_ordenada = []
+    lista_ordenada = []                                 # Ordena cada bucket individualmente e concatena o resultado
     for bucket in buckets:
         lista_ordenada.extend(sorted(bucket))
-    for i in range(len(lista)):
+    for i in range(len(lista)):                         # Copia os elementos ordenados de volta para a lista original
         lista[i] = lista_ordenada[i]
 
 
