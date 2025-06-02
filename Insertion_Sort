@@ -1,16 +1,23 @@
-# Insertion Sort (ordenação por inserção)
+# Insertion Sort (ordenação por inserção) é um algoritmo de ordenação simples e intuitivo que constrói a lista ordenada um elemento de cada vez. 
+# Ele é eficiente para listas pequenas e é um algoritmo estável.
+# Vantagens #
+# Fácil de implementar: Algoritmo direto e compreensível, ideal para iniciantes.
+# Eficiente para listas pequenas: Desempenho aceitável em listas com poucos elementos.
+# Desvantagens #
+# Ineficiente para listas grandes: Complexidade no pior caso, o que o torna lento com muitos elementos desordenados.
+# Pouco competitivo com outros algoritmos avançados: Algoritmos como Merge Sort ou Quick Sort são muito mais eficientes para grandes volumes de dados.
 
 lista = [10, 3, 7, 8, 2]
 
 def insertion_sort(lista):
-    n = len(lista)
-    for i in range(1, n):
-        chave = lista[i]
-        j = i - 1
-        while j >= 0 and lista[j] > chave:
-            lista[j + 1] = lista[j]
-            j -= 1
-        lista[j + 1] = chave
+    n = len(lista)                              # Obtém o tamanho da lista.
+    for i in range(1, n):                       # Começa do segundo elemento (índice 1).
+        chave = lista[i]                        # elemento a ser inserido na parte ordenada.
+        j = i - 1                               # Índice do último elemento da parte ordenada.
+        while j >= 0 and lista[j] > chave:      # move os elementos da parte ordenada que são maiores que a chave para a direita.
+            lista[j + 1] = lista[j]             # Desloca o elemento para a direita.
+            j -= 1                              # Move para o próximo elemento à esquerda.
+        lista[j + 1] = chave                    # insere a chave na posição correta.
 
 
 insertion_sort(lista)
