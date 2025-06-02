@@ -2,7 +2,7 @@
 
 lista = [170, 45, 75, 90, 802, 24, 2, 66]
 
-def counting_sort_for_radix(lista, exp):
+def counting_sort(lista, exp):
     n = len(lista)
     output = [0] * n
     count = [0] * 10
@@ -23,7 +23,7 @@ def radix_sort(lista):
     max_valor = max(lista) if lista else 0
     exp = 1
     while max_valor // exp > 0:
-        counting_sort_for_radix(lista, exp)
+        counting_sort(lista, exp)
         exp *= 10
 
 radix_sort(lista)
