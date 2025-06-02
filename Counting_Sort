@@ -1,0 +1,25 @@
+# Counting Sort
+
+lista = [4, 2, 10, 8, 3, 3, 1]
+
+def counting_sort(lista):
+    if not lista:
+        return lista
+    max_valor = max(lista)
+    min_valor = min(lista)
+    intervalo = max_valor - min_valor + 1
+    contagem = [0] * intervalo
+    for numero in lista:
+        contagem[numero - min_valor] += 1
+    for i in range(1, intervalo):
+        contagem[i] += contagem[i - 1]
+    saida = [0] * len(lista)
+    for numero in reversed(lista):
+        contagem[numero - min_valor] -= 1
+        pos = contagem[numero - min_valor]
+        saida[pos] = numero
+    for i in range(len(lista)):
+        lista[i] = saida[i]
+
+counting_sort(lista)
+print(lista)
