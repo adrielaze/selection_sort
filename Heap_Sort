@@ -1,24 +1,31 @@
-# Heap Sort
+# Heap Sort é um algoritmo de ordenação baseado na estrutura de dados chamada heap (ou montículo). 
+# Ele utiliza a propriedade do heap para ordenar os elementos de forma eficiente. O Heap Sort é um algoritmo de ordenação in-place e não é estável.
+# Vantagens # 
+# Complexidade de tempo garantida: Tem desempenho consistente, mesmo no pior caso.
+# Não usa muita memória extra: É um algoritmo in-place, ou seja, não requer estruturas auxiliares grandes.
+# Desvantagens #
+# Não é estável: Elementos com valores iguais podem ter sua ordem original alterada.
+# Desempenho prático geralmente inferior: Apesar de ter complexidade semelhante, o Heap Sort costuma ser mais lento na prática devido à manipulação de heap.
 
 lista = [20, 5, 3, 7, 10]
 
 def heapify(lista, n, i):
-    maior = i
-    esquerda = 2 * i + 1
-    direita = 2 * i + 2
-    if esquerda < n and lista[esquerda] > lista[maior]:
+    maior = i                                                   # Assume que o maior elemento é a raiz
+    esquerda = 2 * i + 1                                        # índice do filho à esquerda
+    direita = 2 * i + 2                                         # índice do filho à direita
+    if esquerda < n and lista[esquerda] > lista[maior]:         # Verifica se o filho à esquerda é maior que a raiz
         maior = esquerda
-    if direita < n and lista[direita] > lista[maior]:
+    if direita < n and lista[direita] > lista[maior]:           # Verifica se o filho à direita é maior que o maior atual
         maior = direita
-    if maior != i:
+    if maior != i:                                              # Se o maior não for a raiz, troca-os e continua heapify recursivamente
         lista[i], lista[maior] = lista[maior], lista[i]
         heapify(lista, n, maior)
 def heap_sort(lista):
     n = len(lista)
-    for i in range(n // 2 - 1, -1, -1):
+    for i in range(n // 2 - 1, -1, -1):                         # Construir o heap máximo
         heapify(lista, n, i)
-    for i in range(n - 1, 0, -1):
-        lista[0], lista[i] = lista[i], lista[0]
-        heapify(lista, i, 0)
+    for i in range(n - 1, 0, -1):                               # Extrair elementos do heap um por um
+        lista[0], lista[i] = lista[i], lista[0]                 # Move a raiz atual para o fim
+        heapify(lista, i, 0)                                    # chama heapify na raiz reduzida
 heap_sort(lista)
 print(lista)
