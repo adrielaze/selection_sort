@@ -1,0 +1,25 @@
+# Quick Sort (ordenação rápida)
+
+lista = [10, 3, 7, 8, 2, 1, 5]
+
+def partition(lista, inicio, fim):
+    pivo = lista[fim]
+    i = inicio - 1
+    for j in range(inicio, fim):
+        if lista[j] <= pivo:
+            i += 1
+            lista[i], lista[j] = lista[j], lista[i]
+    
+    lista[i + 1], lista[fim] = lista[fim], lista[i + 1]
+    return i + 1  
+def quicksort(lista, inicio=0, fim=None):
+    if fim is None:
+        fim = len(lista) - 1
+    if inicio < fim:
+        p = partition(lista, inicio, fim)
+        quicksort(lista, inicio, p - 1)
+        quicksort(lista, p + 1, fim)
+
+    
+quicksort(lista)
+print(lista)
