@@ -1,17 +1,25 @@
-# selection_sort
+# selection sort (ordenação por seleção)   um algoritmo de ordenação simples. Ele percorre a lista procurando o menor elemento e o coloca na primeira posição. 
+# Em seguida, procura o segundo menor e coloca na segunda posição, e assim por diante, até a lista estar ordenada.
+#Vantagens #:
+# Fácil de entender e implementar: Algoritmo direto, ótimo para fins educacionais.
+# Pouco número de trocas: Realiza no máximo n - 1 trocas, o que pode ser vantajoso quando as trocas são operações custosas.
+# Desvantagens #
+# Ineficiente para listas grandes: Complexidade de tempo é O(n²) no melhor, médio e pior caso.
+# Não é estável: Pode alterar a ordem de elementos iguais
 
 lista = [10, 3, 7, 8, 2]
 
 def selection_sort(lista):
-    n = len(lista)
-    for j in range(n - 1):
-        minimo = j
-        for i in range(j, n):
-            if lista[i] < lista[minimo]:
-                minimo = i
-        if lista[j] > lista[minimo]:
-            aux = lista[j]
-            lista[j] = lista[minimo]
-            lista[minimo] = aux
+    n = len(lista)                              # Obtém o tamanho da lista
+    for j in range(n - 1):                      # Itera sobre cada elemento da lista, exceto o último
+        minimo = j                              # Assume que o primeiro elemento não ordenado é o menor
+        for i in range(j, n):                   # Compara o elemento atual com os restantes
+            if lista[i] < lista[minimo]:        # Se encontrar um elemento menor
+                minimo = i                      # Atualiza o índice do menor elemento
+        if lista[j] > lista[minimo]:            # Troca o elemento atual com o menor encontrado
+            aux = lista[j]                      # Armazena o valor do elemento atual
+            lista[j] = lista[minimo]            # Coloca o menor elemento na posição atual
+            lista[minimo] = aux                 # Coloca o elemento atual na posição do menor
 selection_sort(lista)
 print(lista)
+
