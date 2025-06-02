@@ -9,11 +9,11 @@
 lista = [10, 3, 7, 8, 2]
 
 def bubble_sort(lista):
-    n = len(lista)
-    for j in range(n-1):
-        for i in range(n-1-j):
-            if lista[i] > lista[i+1]:
-                lista[i], lista[i+1] = lista[i+1], lista[i]
+    n = len(lista)                                                  # Obtém o tamanho da lista, para controlar os loops.
+    for j in range(n-1):                                            # Loop externo para controlar o número de passadas.
+        for i in range(n-1-j):                                      # Loop interno que percorre a lista até a parte não ordenadao.
+            if lista[i] > lista[i+1]:                               # Compara o elemento atual com o próximo.
+                lista[i], lista[i+1] = lista[i+1], lista[i]         # Troca os elementos se estiverem na ordem errada.
 
 
 bubble_sort(lista)
