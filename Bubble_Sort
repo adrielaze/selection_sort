@@ -1,4 +1,10 @@
-# Bubble Sort
+# Bubble Sort percorre os numeros e faz uma comparação com o primeiro e o segundo. percorre em 2 em 2 ate organizar em crecente
+# Vantagens #
+# Estável: Mantém a ordem de elementos iguais, o que é útil em certas aplicações, como ordenação de registros.
+# Não requer memória extra: É um algoritmo in-place, ou seja, não precisa de espaço adicional significativo além da entrada.
+# Desvantagens #
+# Ineficiente para listas grandes: Complexidade de tempo no pior e no caso médio, tornando-o muito lento para grandes volumes de dados.
+# Número elevado de comparações e trocas: Mesmo em alguns casos simples, realiza muitas operações desnecessárias.
 
 lista = [10, 3, 7, 8, 2]
 
