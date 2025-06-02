@@ -1,4 +1,9 @@
-# Bucket Sort
+# Bucket Sort é um algoritmo de ordenação que distribui os elementos de uma lista em vários "baldes" (ou buckets) e, em seguida, ordena cada balde individualmente. 
+# Este algoritmo é especialmente útil quando os dados estão uniformemente distribuídos
+# Vantagens # 
+# Muito eficiente para dados uniformemente distribuídos: Pode atingir complexidade de tempo linear O(n) em casos ideais.
+# Paralelizável # 
+# Cada balde pode ser ordenado de forma independente, o que facilita a paralelização do processo.
 
 lista = [0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51]
 
