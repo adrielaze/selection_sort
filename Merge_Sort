@@ -1,20 +1,27 @@
-# Merge Sort (ordenação por intercalação)
+# Merge Sort (ordenação por intercalação) é um algoritmo de ordenação baseado na técnica de divisão e conquista. 
+# Ele divide a lista em sublistas menores, ordena essas sublistas e, em seguida, as combina (ou intercala) para formar uma lista ordenada.
+# Vantagens # 
+# Estável: Preserva a ordem relativa de elementos iguais, útil em ordenações múltiplas.
+# Bom para dados grandes e externos: Pode ser implementado em versão externa (external sort), ideal para ordenar dados que não cabem na memória RAM.
+# Desvantagens # 
+# Requer espaço extra: Memória adicional para arrays temporários, o que pode ser um problema em sistemas com pouca RAM.
+# Mais lento que outros algoritmos em listas pequenas: Overhead da divisão e combinação torna-o menos eficiente do que Insertion ou Quick Sort em vetores pequenos.
 
 lista = [4, 3, 9, 5, 2]
 
 def merge(lista, inicio, meio, fim):
     
-    left = lista[inicio:meio]
+    left = lista[inicio:meio]                       # Cria sublistas para mesclar
     right = lista[meio:fim]
     top_left, top_right = 0, 0
     for k in range(inicio, fim):
-        if top_left >= len(left):
+        if top_left >= len(left):                   # Se todos os elementos da sublista esquerda foram usados
             lista[k] = right[top_right]
             top_right += 1
-        elif top_right >= len(right):
+        elif top_right >= len(right):               # Se todos os elementos da sublista direita foram usados
             lista[k] = left[top_left]
             top_left += 1
-        elif left[top_left] < right[top_right]:
+        elif left[top_left] < right[top_right]:     # Compara os elementos das sublistas
             lista[k] = left[top_left]
             top_left += 1
         else:
@@ -25,9 +32,9 @@ def merge_sort(lista, inicio=0, fim=None):
         fim = len(lista)
     if (fim - inicio) > 1:
         meio = (inicio + fim) // 2
-        merge_sort(lista, inicio, meio)
-        merge_sort(lista, meio, fim)
-        merge(lista, inicio, meio, fim)
+        merge_sort(lista, inicio, meio)             # Ordena a sublista esquerda
+        merge_sort(lista, meio, fim)                # Ordena a sublista direita
+        merge(lista, inicio, meio, fim)             # Mescla as duas sublistas
 
 merge_sort(lista)
 print(lista)
