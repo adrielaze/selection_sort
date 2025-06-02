@@ -1,4 +1,4 @@
-# Bubble Sort percorre os numeros e faz uma comparação com o primeiro e o segundo. percorre em 2 em 2 ate organizar em crecente
+# Bubble Sort  funciona comparando pares de elementos adjacentes em uma lista e trocando-os de posição se estiverem na ordem errada. Esse processo se repete até que a lista esteja ordenada.
 # Vantagens #
 # Estável: Mantém a ordem de elementos iguais, o que é útil em certas aplicações, como ordenação de registros.
 # Não requer memória extra: É um algoritmo in-place, ou seja, não precisa de espaço adicional significativo além da entrada.
