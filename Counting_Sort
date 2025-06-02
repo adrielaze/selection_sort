@@ -1,24 +1,31 @@
-# Counting Sort
+# Counting Sort ordenção por contagem
+# Vantagens # 
+# Muito rápido para inteiros em intervalos pequenos: Pode atingir complexidade, onde n é o número de elementos o maior valor presente.
+# Estável: Preserva a ordem de elementos iguais, útil em ordenações com múltiplos critérios.
+# Desvantagens #
+# Consome muita memória se o intervalo for grande: Para valores grandes o array de contagem ocupa muito espaço.
+# Limitado a inteiros: Não funciona diretamente com dados como strings ou números de ponto flutuante.
+
 
 lista = [4, 2, 10, 8, 3, 3, 1]
 
 def counting_sort(lista):
     if not lista:
-        return lista
+        return lista                                # Retorna a lista vazia sem alterações
     max_valor = max(lista)
     min_valor = min(lista)
     intervalo = max_valor - min_valor + 1
-    contagem = [0] * intervalo
-    for numero in lista:
+    contagem = [0] * intervalo                      # Cria o array de contagem com tamanho baseado no intervalo dos dados
+    for numero in lista:                            # Conta a ocorrência de cada elemento
         contagem[numero - min_valor] += 1
-    for i in range(1, intervalo):
+    for i in range(1, intervalo):                   # Modifica o array de contagem para armazenar a posição final de cada elemento
         contagem[i] += contagem[i - 1]
-    saida = [0] * len(lista)
-    for numero in reversed(lista):
+    saida = [0] * len(lista)                        # Cria array de saída para armazenar o resultado ordenado
+    for numero in reversed(lista):                  # Constroi o array de saída fazendo varredura reversa para manter a estabilidade
         contagem[numero - min_valor] -= 1
         pos = contagem[numero - min_valor]
         saida[pos] = numero
-    for i in range(len(lista)):
+    for i in range(len(lista)):                     # Copia os elementos ordenados de volta para a lista original
         lista[i] = saida[i]
 
 counting_sort(lista)
